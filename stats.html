@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>奶娃木鱼 · 数据</title>
+<style>
+  body { margin: 0; min-height: 100vh; background: #241a10; color: #f3e5cf;
+         font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+         display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; }
+  h1 { font-size: 20px; color: #ffd98a; letter-spacing: 2px; margin: 0 0 24px; }
+  .card { background: rgba(255,217,138,.07); border: 1px solid rgba(255,217,138,.25); border-radius: 14px;
+          padding: 18px 28px; margin: 8px 0; width: min(320px, 86vw); text-align: center; }
+  .num { font-size: 34px; font-weight: 700; color: #ffd98a; }
+  .label { font-size: 13px; color: #cbb287; margin-top: 4px; }
+  .note { margin-top: 22px; font-size: 12px; color: #8a7350; text-align: center; line-height: 1.9; }
+  a { color: #ffd98a; }
+</style>
+</head>
+<body>
+  <h1>🐉 奶娃木鱼 · 热度数据</h1>
+  <div class="card">
+    <div class="num"><span id="busuanzi_value_site_uv">…</span></div>
+    <div class="label">一共有多少位朋友打开过（访客数）</div>
+  </div>
+  <div class="card">
+    <div class="num"><span id="busuanzi_value_site_pv">…</span></div>
+    <div class="label">页面总共被打开多少次（浏览量）</div>
+  </div>
+  <div class="note">数字从 2026-11-18 下午装上统计后开始算，之前的打开补不回来。<br>
+  你自己打开木鱼、打开本页，也会被算进去，所以会比真实朋友数略多一点。<br><br>
+  <a href="./">← 回奶娃木鱼</a></div>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+</html>
