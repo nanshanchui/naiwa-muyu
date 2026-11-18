@@ -23,7 +23,7 @@
   .title-fill { height: 100%; background: linear-gradient(90deg, #d9a441, #ffd98a); border-radius: 4px; transition: width .4s; }
   .today { margin-top: 10px; font-size: 13px; color: #a9885c; }
 
-  .stage { position: relative; width: min(360px, 88vw); height: 300px; margin-top: 8px; }
+  .stage { position: relative; width: min(360px, 88vw); height: 300px; margin-top: 8px; touch-action: manipulation; }
   .fish-wrap { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); cursor: pointer; transition: transform .07s; }
   .fish-wrap img { width: 258px; display: block; pointer-events: none; filter: drop-shadow(0 12px 22px rgba(0,0,0,.45)); -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 99%); mask-image: linear-gradient(to bottom, #000 86%, transparent 99%); }
   .fish-wrap.hit { transform: translateX(-50%) scale(.955, .93); }
@@ -268,7 +268,16 @@ function hit() {
   $("stage").appendChild(s);
   setTimeout(() => s.remove(), 1000);
 }
-$("stage").addEventListener("click", hit);
+let lastHitAt = 0;
+function hitEvent(e) {
+  const now = Date.now();
+  if (now - lastHitAt < 350) return;
+  lastHitAt = now;
+  hit();
+}
+$("stage").addEventListener("pointerdown", hitEvent);
+$("stage").addEventListener("touchend", hitEvent);
+$("stage").addEventListener("click", hitEvent);
 document.addEventListener("keydown", e => {
   if (e.code === "Space" && !$("breathOverlay").classList.contains("on")) { e.preventDefault(); hit(); }
 });
